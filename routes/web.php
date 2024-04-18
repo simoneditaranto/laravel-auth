@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,19 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+// rotta per pagina di amministrazione
+// Route::get('/admin', [DashboardController::class, 'index'])->middleware(['auth']);
+
+Route::middleware(['auth', 'verified'])
+        ->name('admin.')
+        ->prefix('admin')
+        ->group(function () {
+            // qui inserisco tutte le rotte che vogliono che siano:
+            // raggruppate sotto lo stesso middlware
+            // i loro nomi iniziano con 'admin.'
+            // tutti i loro url iniziano con 'admin/'
+            Route::get('/', [DashboardController::class, 'index']);
+            }
+        );
