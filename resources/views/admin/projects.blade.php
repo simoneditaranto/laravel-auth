@@ -13,9 +13,6 @@
                     <div class="title fw-bold">
                         {{$project->name}}
                     </div>
-                    <div class="description">
-                        {{$project->description}}
-                    </div>
                     <div class="thumb">
                         <a href="{{route('admin.projects.show', $project->id)}}">
                             <img src="{{$project->thumb}}" alt="">
@@ -32,7 +29,9 @@
             @endforeach
         </div>
 
-        <button type="button" class="btn btn-primary">Aggiungi nuovo progetto</button>
+        <button type="button" class="btn btn-primary">
+            <a href="{{route('admin.projects.create')}}" class="text-white text-decoration-none">Aggiungi nuovo progetto</a>
+        </button>
 
     </div>
     

@@ -12,6 +12,11 @@
               <a href="#" class="btn btn-danger">elimina</a>
             </div>
         </div>
+
+        <button type="button" class="btn btn-primary">
+            <a href="/admin/projects" class="text-white text-decoration-none">Torna ai progetti</a>
+        </button>
     </div>
+
 
 @endsection
