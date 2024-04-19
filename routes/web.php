@@ -44,5 +44,7 @@ Route::middleware(['auth', 'verified'])
             // i loro nomi iniziano con 'admin.'
             // tutti i loro url iniziano con 'admin/'
             Route::get('/', [DashboardController::class, 'index']);
+            
+            Route::get('/projects', [DashboardController::class, 'showProjects'])->name('projects');
             }
         );

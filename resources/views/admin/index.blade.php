@@ -5,5 +5,9 @@
         <h1>Pagina di amministrazione</h1>
 
         <h3>Benvnuto {{$user->name}}</h3>
+
+        <button type="button" class="btn btn-primary">
+            <a href="/admin/projects" class="text-white text-decoration-none">Vedi tutti i progetti</a>
+        </button>
     </div>
 @endsection
