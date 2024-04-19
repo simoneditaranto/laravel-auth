@@ -17,7 +17,9 @@
                         {{$project->description}}
                     </div>
                     <div class="thumb">
-                        <img src="{{$project->thumb}}" alt="">
+                        <a href="{{route('admin.projects.show', $project->id)}}">
+                            <img src="{{$project->thumb}}" alt="">
+                        </a>
                     </div>
                     <div class="technologies">
                         {{$project->technologies}}
