@@ -15,9 +15,9 @@ class DashboardController extends Controller
         return view('admin.index', compact('user'));
     }
 
-    public function showProjects() {
+    // public function showProjects() {
 
-        return view('admin.projects');
+    //     return view('admin.projects');
 
-    }
+    // }
 }
