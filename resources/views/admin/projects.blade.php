@@ -6,29 +6,31 @@
         
         <h2>Lista dei progetti</h2>
 
-        <div class="row">
-            @foreach($posts as $post)
+        <div class="row mb-3">
+            @foreach($projects as $project)
 
                 <div class="col">
                     <div class="title fw-bold">
-                        {{$post->name}}
+                        {{$project->name}}
                     </div>
                     <div class="description">
-                        {{$post->description}}
+                        {{$project->description}}
                     </div>
                     <div class="thumb">
-                        <img src="{{$post->thumb}}" alt="">
+                        <img src="{{$project->thumb}}" alt="">
                     </div>
                     <div class="technologies">
-                        {{$post->technologies}}
+                        {{$project->technologies}}
                     </div>
                     <div class="link-repo text-decoration-underline">
-                        {{$post->link_repo}}
+                        {{$project->link_repo}}
                     </div>
                 </div>
 
             @endforeach
         </div>
+
+        <button type="button" class="btn btn-primary">Aggiungi nuovo progetto</button>
 
     </div>
     
