@@ -32,13 +32,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        $request->validate();
+        
         $newProject = new Project();
 
-        $newProject->name = $request->name;
-        $newProject->description = $request->description;
-        $newProject->thumb = $request->thumb;
-        $newProject->technologies = $request->technologies;
-        $newProject->link_repo = $request->link_repo;
+        $newProject->fill($request->all());
 
         $newProject->save();
 
@@ -66,15 +64,13 @@ class ProjectController extends Controller
      */
     public function update(StoreProjectRequest $request, Project $project)
     {
-        $project->name = $request->name;
-        $project->description = $request->description;
-        $project->thumb = $request->thumb;
-        $project->technologies = $request->technologies;
-        $project->link_repo = $request->link_repo;
+        $request->validated();
+
+        $project->update($request->all());
 
         $project->save();
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index', $project->id);
     }
 
     /**

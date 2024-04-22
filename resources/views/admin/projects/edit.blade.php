@@ -12,29 +12,54 @@
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nome del progetto</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{$project->name}}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name') ?? $project->name}}">
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea type="text" class="form-control" id="description" name="description">
-                    {{$project->description}}
+                <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description">
+                    {{old('description') ?? $project->description}}
                 </textarea>
+                @error('description')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="thumb" class="form-label">Immagine del progetto</label>
-                <input type="text" class="form-control" id="thumb" name="thumb" value="{{$project->thumb}}">
+                <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb') ?? $project->thumb}}">
+                @error('thumb')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="technologies" class="form-label">Tecnologie utilizzate</label>
-                <input type="text" class="form-control" id="technologies" name="technologies" value="{{$project->technologies}}">
+                <input type="text" class="form-control @error('technologies') is-invalid @enderror" id="technologies" name="technologies" value="{{old('technologies') ?? $project->technologies}}">
+                @error('technologies')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="link_repo" class="form-label">Link repo GitHub</label>
-                <input type="text" class="form-control" id="link_repo" name="link_repo" value="{{$project->link_repo}}">
+                <input type="text" class="form-control @error('link_repo') is-invalid @enderror" id="link_repo" name="link_repo" value="{{old('link_repo') ?? $project->link_repo}}">
+                @error('link_repo')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-primary">Salva</button>
