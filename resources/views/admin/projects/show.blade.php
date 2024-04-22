@@ -4,7 +4,6 @@
 
     <div class="container py-5">
         <div class="card" style="width: 18rem;">
-            {{-- <img src="{{$project->thumb}}" class="card-img-top" alt="..."> --}}
             <img src="{{asset('storage/' . $project->thumb)}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{$project->name}}</h5>

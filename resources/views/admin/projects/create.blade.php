@@ -33,7 +33,6 @@
 
             <div class="mb-3">
                 <label for="thumb" class="form-label">Immagine del progetto</label>
-                {{-- <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}"> --}}
                 <input type="file" class="form-control @error('thumb') is-invalid @enderror" name="thumb">
                 @error('thumb')
                     <div class="invalid-feedback">
