@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -32,11 +33,21 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $request->validate();
+        // dd($request);
+
+        $request->validated();
         
         $newProject = new Project();
 
         $newProject->fill($request->all());
+
+        if($request->hasFile('thumb')) {
+            // salvo il percorso dell'immagine in una variabile e contemporaneamente salviamo l'immagine nel server
+            $path = Storage::disk('public')->put('project_images', $request->thumb);
+            // salvo il percorso che ho ottenuto dal salvataggio dell'immagine (laravel per privacy e sicurezza
+            // cambia il nome del file dando un nome randomico)
+            $newProject->thumb = $path;
+        }
 
         $newProject->save();
 
@@ -65,6 +76,14 @@ class ProjectController extends Controller
     public function update(StoreProjectRequest $request, Project $project)
     {
         $request->validated();
+
+        if($request->hasFile('thumb')) {
+            // salvo il percorso dell'immagine in una variabile e contemporaneamente salviamo l'immagine nel server
+            $path = Storage::disk('public')->put('project_images', $request->thumb);
+            // salvo il percorso che ho ottenuto dal salvataggio dell'immagine (laravel per privacy e sicurezza
+            // cambia il nome del file dando un nome randomico)
+            $project->thumb = $path;
+        }
 
         $project->update($request->all());
 

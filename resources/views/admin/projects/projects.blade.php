@@ -15,7 +15,7 @@
                     </div>
                     <div class="thumb">
                         <a href="{{route('admin.projects.show', $project->id)}}">
-                            <img src="{{$project->thumb}}" alt="">
+                            <img class="w-100" src="{{asset('storage/' . $project->thumb)}}" alt="">
                         </a>
                     </div>
                     <div class="technologies">
@@ -24,6 +24,8 @@
                     <div class="link-repo text-decoration-underline">
                         {{$project->link_repo}}
                     </div>
+
+                    <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-secondary">Visualizza</a>
                 </div>
 
             @endforeach
